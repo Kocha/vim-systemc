@@ -1,0 +1,36 @@
+==============================================================================
+INTRODUCTION
+
+These scripts do the syntax highlighting for SystemC files.
+(In the future, various functions are added.)
+
+==============================================================================
+USAGE
+
+If the syntax of the file is detected to be cpp, the first
+50 lines are scanned for some systemc specific keywords. If
+found, systemc highlighting is added, else the normal cpp
+highlighting is left
+
+==============================================================================
+INSTALL
+
+github repository:
+  http://github.com/Kocha/vim-systemc
+
+For Windows:
+  1. Copy 
+     after/syntax/cpp.vim to $VIMRUNTIME/../vimfiles/after/syntax/
+     Create the directory if it doesn't exist
+  2. Copy
+     plugin/systemc.vim to $VIMRUNTIME/../vimfiles/plugin
+     Create the directory if it doesn't exist
+
+For Unix:
+  1. Copy
+     after/syntax/cpp.vim to $HOME/.vim/after/syntax/
+     Create the directory if it doesn't exist
+  2. Copy
+     plugin/systemc.vim to $HOME/.vim/plugin
+     Create the directory if it doesn't exist
+
