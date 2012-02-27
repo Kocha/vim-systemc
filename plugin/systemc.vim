@@ -1,5 +1,5 @@
 "=============================================================================
-" Vim Coding Support for SystemC
+" Vim Modeling Support for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
 " Last Modified: 27 Feb 2012.
@@ -33,7 +33,7 @@ function! Check_SystemC()
   let line_num = (line('$') > 50)? 50 : line('$')
   while (line_num)
     " Check for systemc keywords
-    if getline(line_num) =~? 'systemc\|sc_[a-z]+'
+    if getline(line_num) =~? 'systemc\|sc_[a-z]*'
        return "systemc"
     endif
     let line_num -= 1
