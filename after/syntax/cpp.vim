@@ -59,52 +59,42 @@ syn keyword SC_Macro SC_UNSPECIFIED SC_DO_NOTHING SC_THROW SC_LOG SC_DISPLAY
 syn keyword SC_Macro SC_CACHE_REPORT SC_INTERRUPT SC_STOP SC_ABORT
 
 " SystemC Functions
-syn keyword SC_Func get_value
-syn keyword SC_Func post
-syn keyword SC_Func trywait 
-syn keyword SC_Func kind
-syn keyword SC_Func unlock
-syn keyword SC_Func trylock
-syn keyword SC_Func lock
-syn keyword SC_Func num_available
-syn keyword SC_Func nb_read
-syn keyword SC_Func num_free 
-syn keyword SC_Func nb_write
-syn keyword SC_Func negedge_event
-syn keyword SC_Func posedge_event
-syn keyword SC_Func default_event
-syn keyword SC_Func value_change_event
-syn keyword SC_Func watching
-syn keyword SC_Func duty_cycle 
-syn keyword SC_Func name 
-syn keyword SC_Func period
-syn keyword SC_Func negedge
-syn keyword SC_Func posedge
-syn keyword SC_Func neg 
-syn keyword SC_Func pos 
-syn keyword SC_Func event
-syn keyword SC_Func reset_signal_is
-syn keyword SC_Func async_reset_signal_is
-syn keyword SC_Func initialize
-syn keyword SC_Func dont_initialize 
+" match   is (class menber functions('.' or "->")) no argument
+syn match   SC_Func /\(\.\|->\)get_value()/
+syn match   SC_Func /\(\.\|->\)post()/
+syn match   SC_Func /\(\.\|->\)trywait()/
+syn match   SC_Func /\(\.\|->\)kind()/
+syn match   SC_Func /\(\.\|->\)unlock()/
+syn match   SC_Func /\(\.\|->\)trylock()/
+syn match   SC_Func /\(\.\|->\)lock()/
+syn match   SC_Func /\(\.\|->\)num_available()/
+" syn keyword SC_Func nb_read nb_write
+syn match   SC_Func /\(\.\|->\)negedge_event()/
+syn match   SC_Func /\(\.\|->\)posedge_event()/
+syn match   SC_Func /\(\.\|->\)default_event()/
+syn match   SC_Func /\(\.\|->\)value_change_event()/
+syn match   SC_Func /\(\.\|->\)duty_cycle()/
+syn match   SC_Func /\(\.\|->\)name()/
+syn match   SC_Func /\(\.\|->\)period()/
+syn match   SC_Func /\(\.\|->\)negedge()/
+syn match   SC_Func /\(\.\|->\)posedge()/
+syn match   SC_Func /\(\.\|->\)neg()/
+syn match   SC_Func /\(\.\|->\)pos()/
+syn match   SC_Func /\(\.\|->\)event()/
+syn keyword SC_Func reset_signal_is async_reset_signal_is
+syn keyword SC_Func initialize dont_initialize
 syn keyword SC_Func next_trigger
-syn keyword SC_Func notify
+syn match   SC_Func /\(\.\|->\)notify()/
 syn keyword SC_Func wait 
-syn keyword SC_Func read
-syn keyword SC_Func before_of_elaboration
-syn keyword SC_Func end_of_elaboration
-syn keyword SC_Func start_of_simulation
-syn keyword SC_Func write
+" syn keyword SC_Func read write
+syn keyword SC_Func before_of_elaboration end_of_elaboration
+syn keyword SC_Func start_of_simulation end_of_simulation
 syn keyword SC_Func sc_time_stamp 
 syn keyword SC_Func sc_main 
-syn keyword SC_Func sc_start
-syn keyword SC_Func sc_trace
-syn keyword SC_Func sc_trace_file 
-syn keyword SC_Func sc_stop
-syn keyword SC_Func sc_set_time_resolution 
-syn keyword SC_Func sc_get_default_time_unit
-syn keyword SC_Func sc_get_time_resolution 
-syn keyword SC_Func sc_set_default_time_unit
+syn keyword SC_Func sc_start sc_stop
+syn keyword SC_Func sc_trace sc_trace_file 
+syn keyword SC_Func sc_set_time_resolution sc_set_default_time_unit
+syn keyword SC_Func sc_get_default_time_unit sc_get_time_resolution 
 syn keyword SC_Func sc_assert
 syn keyword SC_Func to_string
 
@@ -154,11 +144,13 @@ syn keyword TLM_Class tlm_initiator_socket tlm_target_socket
 syn keyword TLM_Class tlm_analysis_fifo tlm_analysis_if tlm_analysis_port 
 syn keyword TLM_Class tlm_array tlm_fifo 
 " TLM Functions
+" match   is (class menber functions('.' or "->")) no argument
+" syn match   TLM_Func /\(\.\|->\)/
 syn keyword TLM_Func b_transport nb_transport_fw nb_transport_bw
 syn keyword TLM_Func invalidate_direct_mem_ptr transport_dbg
 
 " And the highlighting
-hi SC_Func ctermfg=6  guifg=darkcyan
+hi def link SC_Func Function
 hi def link SC_Macro Constant
 hi def link SC_Util Constant
 hi def link SC_Comu Type
@@ -167,6 +159,5 @@ hi def link TLM_Func SC_Func
 hi def link TLM_Class Type
 
 " echohl Comment | echo "Detected SystemC file" | echohl None
-echohl Comment | echohl None
 
 " vim: foldmethod=marker
