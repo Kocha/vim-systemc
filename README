@@ -34,3 +34,7 @@ For Unix:
      plugin/systemc.vim to $HOME/.vim/plugin
      Create the directory if it doesn't exist
 
+==============================================================================
+REFERENCE
+ 1) IEEE1666-2011 (http://www.accellera.org/)
+
