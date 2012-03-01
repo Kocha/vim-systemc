@@ -2,7 +2,7 @@
 " Vim Modeling Support for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 27 Feb 2012.
+" Last Modified: 1 May 2012.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.1.0, for Vim 7.3
+" Version: 0.2.0, for Vim 7.3
 "=============================================================================
 
 "=================================================
@@ -33,7 +33,13 @@ function! Check_SystemC()
   let line_num = (line('$') > 50)? 50 : line('$')
   while (line_num)
     " Check for systemc keywords
-    if getline(line_num) =~? 'systemc\|sc_[a-z]*'
+    if getline(line_num) =~? 'systemc\|sc_[a-z]*\|tlm_[a-z]*'
+       if $SYSTEMC_HOME != ""
+         set path+=$SYSTEMC_HOME/include
+       endif
+       if $TLM_HOME != ""
+         set path+=$TLM_HOME/include/tlm
+       endif
        return "systemc"
     endif
     let line_num -= 1
