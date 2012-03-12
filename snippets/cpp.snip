@@ -11,7 +11,7 @@ prev_word '^'
         {
             SC_THREAD( process );
         }
-    };$[0}
+    };${0}
 
 snippet   SC_MODULE_sc_module_name
 abbr      SC_MODULE(){ sc_module_name }
@@ -44,7 +44,7 @@ abbr      SC_CTHREAD( process, clk )
 snippet   SC_CTHREAD_RST
 abbr      SC_CTHREAD( process, clk )_sync_reset
     SC_CTHREAD( ${1:process}, ${2:clk_event} );
-    reset_signal_is($[3:reset}, false);${0}
+    reset_signal_is(${3:reset}, false);${0}
 
 snippet   SC_METHOD_SEN
 abbr      SC_METHOD( process ); sensitive <<
