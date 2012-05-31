@@ -30,15 +30,30 @@
 " Check if the file is a SystemC file
 " 
 function! Check_SystemC()
+  let s:env = 0
   let line_num = (line('$') > 50)? 50 : line('$')
   while (line_num)
     " Check for systemc keywords
     if getline(line_num) =~? 'systemc\|sc_[a-z]*\|tlm_[a-z]*'
        if $SYSTEMC_HOME != ""
          set path+=$SYSTEMC_HOME/include
-       endif
-       if $TLM_HOME != ""
+         let s:env = 1
+         if $TLM_HOME != ""
+           set path+=$TLM_HOME/include/tlm
+           let s:env = 2 
+         endif
+       elseif $TLM_HOME != ""
+         let s:env = 3
          set path+=$TLM_HOME/include/tlm
+       endif
+       " syntastic plugin setting
+       echo "s:env : " . s:env
+       if s:env == 1 
+         let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include'
+       elseif s:env == 2
+         let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include -I$TLM_HOME/include/tlm'
+       elseif s:env == 3
+         let b:syntastic_cpp_cflags = ' -I$TLM_HOME/include/tlm'
        endif
        return "systemc"
     endif
