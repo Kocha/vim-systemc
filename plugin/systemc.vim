@@ -47,7 +47,6 @@ function! Check_SystemC()
          set path+=$TLM_HOME/include/tlm
        endif
        " syntastic plugin setting
-       echo "s:env : " . s:env
        if s:env == 1 
          let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include'
        elseif s:env == 2
