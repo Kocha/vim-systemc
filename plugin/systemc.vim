@@ -2,7 +2,7 @@
 " Vim Modeling Support for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 1 May 2012.
+" Last Modified: 12 June 2012.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,42 +23,54 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.2.0, for Vim 7.3
+" Version: 0.3.0, for Vim 7.3
 "=============================================================================
 
 "=================================================
 " Check if the file is a SystemC file
-" 
+"
 function! Check_SystemC()
-  let s:env = 0
-  let line_num = (line('$') > 50)? 50 : line('$')
-  while (line_num)
-    " Check for systemc keywords
-    if getline(line_num) =~? 'systemc\|sc_[a-z]*\|tlm_[a-z]*'
-       if $SYSTEMC_HOME != ""
-         set path+=$SYSTEMC_HOME/include
-         let s:env = 1
-         if $TLM_HOME != ""
-           set path+=$TLM_HOME/include/tlm
-           let s:env = 2 
-         endif
-       elseif $TLM_HOME != ""
-         let s:env = 3
-         set path+=$TLM_HOME/include/tlm
-       endif
-       " syntastic plugin setting
-       if s:env == 1 
-         let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include'
-       elseif s:env == 2
-         let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include -I$TLM_HOME/include/tlm'
-       elseif s:env == 3
-         let b:syntastic_cpp_cflags = ' -I$TLM_HOME/include/tlm'
-       endif
-       return "systemc"
-    endif
-    let line_num -= 1
-  endwhile
-  return "cpp"
+ let s:env = 0
+ let line_num = (line('$') > 50)? 50 : line('$')
+ while (line_num)
+   " Check for systemc keywords
+   if getline(line_num) =~? 'systemc\|sc_[a-z]*\|tlm_[a-z]*'
+      " SYSTMEC_HOME
+      if $SYSTEMC_HOME != ""
+        set path+=$SYSTEMC_HOME/include
+        let s:env += 1
+      endif
+      " TLM_HOME
+      if $TLM_HOME != ""
+        let s:env += 2
+        set path+=$TLM_HOME/include/tlm
+      endif
+      " SYSTEMC_AMS_HOME
+      if $SYSTEMC_AMS_HOME != ""
+        let s:env += 4
+        set path+=$SYSTEMC_AMS_HOME/include
+      endif
+      " set syntastic_cpp_cflags
+      if s:env == 1
+        let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include'
+      elseif s:env == 2
+        let b:syntastic_cpp_cflags = ' -I$TLM_HOME/include/tlm'
+      elseif s:env == 3
+        let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include -I$TLM_HOME/include/tlm'
+      elseif s:env == 4
+        let b:syntastic_cpp_cflags = ' -I$SYSTEMC_AMS_HOME/include'
+      elseif s:env == 5
+        let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include -I$SYSTEMC_AMS_HOME/include'
+      elseif s:env == 6
+        let b:syntastic_cpp_cflags = ' -I$TLM_HOME/include/tlm -I$SYSTEMC_AMS_HOME/include'
+      elseif s:env == 7
+        let b:syntastic_cpp_cflags = ' -I$SYSTEMC_HOME/include -I$TLM_HOME/include/tlm -I$SYSTEMC_AMS_HOME/include'
+      endif
+      return "systemc"
+   endif
+   let line_num -= 1
+ endwhile
+ return "cpp"
 endfunction
 
 " vim: foldmethod=marker
