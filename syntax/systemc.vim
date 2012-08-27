@@ -142,7 +142,7 @@ syn keyword TLM_Class tlm_array tlm_fifo
 " match   is (class menber functions('.' or "->")) no argument
 " syn match   TLM_Func /\(\.\|->\)/
 syn keyword TLM_Func b_transport nb_transport_fw nb_transport_bw
-syn keyword TLM_Func invalidate_direct_mem_ptr transport_dbg
+syn keyword TLM_Func invalidate_direct_mem_ptr transport_dbg get_direct_mem_ptr
 
 " Macros in SystemC-AMS
 syn keyword SCA_Macro SCA_TDF_MODULE
