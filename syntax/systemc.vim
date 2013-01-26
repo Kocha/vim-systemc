@@ -2,7 +2,7 @@
 " Vim syntax file for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 19 June 2012.
+" Last Modified: 27 January 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,14 +23,14 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.3.0, for Vim 7.3
+" Version: 0.3.3, for Vim 7.3
 "=============================================================================
 
 " Source C++ Syntax
 source $VIMRUNTIME/syntax/cpp.vim
 
 " Library Class
-syn match   SC_TLM_L /\(sc_core\:\:\|sc_dt\:\:\|tlm\:\:\)\w*/
+syn match   SC_TLM_L /\(sc_core\:\:\|sc_dt\:\:\|tlm\:\:\|tlm_utils\:\:\)\w*/
 syn match   SC_AMS_L /\(sca_tdf\:\:\|sca_util\:\:\|sca_lsf\:\:\|sca_eln\:\:\)\w*/
 
 " Macros in SystemC
@@ -114,6 +114,7 @@ syn keyword SC_Comu sc_mutex sc_mutex_if sc_host_mutex
 
 " SystemC Utils classes
 syn keyword SC_Util sc_report sc_report_handler sc_vector 
+syn keyword SC_Util sc_abs sc_max sc_min
 
 " SystemC Datatypes and xxx classes 
 syn keyword SC_Type sc_object sc_attribute sc_attr_cltn
@@ -141,7 +142,7 @@ syn keyword TLM_Class tlm_array tlm_fifo
 " TLM Functions
 " match   is (class menber functions('.' or "->")) no argument
 " syn match   TLM_Func /\(\.\|->\)/
-syn keyword TLM_Func b_transport nb_transport_fw nb_transport_bw
+syn keyword TLM_Func b_transport nb_transport_fw nb_transport_bw 
 syn keyword TLM_Func invalidate_direct_mem_ptr transport_dbg get_direct_mem_ptr
 
 " Macros in SystemC-AMS
