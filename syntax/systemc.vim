@@ -2,7 +2,7 @@
 " Vim syntax file for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 27 January 2013.
+" Last Modified: 12 February 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,13 +23,14 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.3.3, for Vim 7.3
+" Version: 0.4.0, for Vim 7.3
 "=============================================================================
 
 " Source C++ Syntax
 source $VIMRUNTIME/syntax/cpp.vim
 
 " Library Class
+syn match   SC_SCV_L /\(scv\:\:\|scv_*\:\:)\w*/
 syn match   SC_TLM_L /\(sc_core\:\:\|sc_dt\:\:\|tlm\:\:\|tlm_utils\:\:\)\w*/
 syn match   SC_AMS_L /\(sca_tdf\:\:\|sca_util\:\:\|sca_lsf\:\:\|sca_eln\:\:\)\w*/
 
@@ -132,6 +133,27 @@ syn keyword SC_Type SC_OCT SC_OCT_US SC_OCT_SM
 syn keyword SC_Type SC_HEX SC_HEX_US SC_HEX_SM
 syn keyword SC_Type SC_LOGIC_0 SC_LOGIC_1 SC_LOGIC_Z SC_LOGIC_X
 
+" SCV classes
+syn keyword SCV_Class scv_constraint_base scv_constraint
+syn keyword SCV_Class scv_extension_base scv_extension scv_extensions
+syn keyword SCV_Class scv_extension_util_if scv_extension_type_if
+syn keyword SCV_Class scv_extension_rw_if scv_extension_rand_if scv_extension_callbacks_if
+syn keyword SCV_Class scv_smart_ptr scv_smart_ptr_if
+syn keyword SCV_Class scv_random scv_bag
+syn keyword SCV_Class scv_tr_db scv_tr_stream scv_tr_generator scv_tr_handle
+" syn keyword SCV_Class scv_tr_generator_base 
+syn keyword SCV_Class scv_sparse_array scv_severity scv_report 
+" syn keyword SCV_Class scv_report_handler 
+" SCV Functions
+syn match   SCV_Func /\(\.\|->\)keep_only/
+syn match   SCV_Func /\(\.\|->\)next()/
+" Macros in SCV
+syn keyword SCV_Macro SCV_CONSTRAINT SCV_CONSTRAINT_CTOR
+syn keyword SCV_Macro SCV_SOFT_CONSTRAINT SCV_BASE_CONSTRAINT
+syn keyword SCV_Macro SCV_EXTENSIONS SCV_EXTENSIONS_CTOR SCV_EXTENSIONS_BASE_CLASS
+syn keyword SCV_Macro SCV_FIELD SCV_ENUM_EXTENSIONS SCV_ENUM_CTOR SCV_ENUM
+syn keyword SCV_Macro SCV_UNSPECIFIED SCV_DO_NOTHING SCV_THROW SCV_LOG
+syn keyword SCV_Macro SCV_DISPLAY SCV_CACHE_REPORT SCV_STOP SCV_ABORT SCV_INTERRUPT
 " TLM classes
 syn keyword TLM_Class tlm_quantumkeeper tlm_dmi
 syn keyword TLM_Class tlm_transport_if tlm_fw_transport_if tlm_bw_transport_if tlm_transport_dbg_if
@@ -157,6 +179,9 @@ hi def link SC_Macro Constant
 hi def link SC_Util Constant
 hi def link SC_Comu Type
 hi def link SC_Type Type
+hi def link SCV_Class Type
+hi def link SCV_Func Function
+hi def link SCV_Macro Constant
 hi def link TLM_Func SC_Func
 hi def link TLM_Class Type
 hi def link SCA_Macro Constant
