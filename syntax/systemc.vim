@@ -30,7 +30,7 @@
 source $VIMRUNTIME/syntax/cpp.vim
 
 " Library Class
-syn match   SC_SCV_L /\(scv\:\:\|scv_*\:\:)\w*/
+syn match   SC_SCV_L /\(scv\:\:\)\w*/
 syn match   SC_TLM_L /\(sc_core\:\:\|sc_dt\:\:\|tlm\:\:\|tlm_utils\:\:\)\w*/
 syn match   SC_AMS_L /\(sca_tdf\:\:\|sca_util\:\:\|sca_lsf\:\:\|sca_eln\:\:\)\w*/
 
@@ -172,6 +172,7 @@ syn keyword SCA_Macro SCA_TDF_MODULE
 syn keyword SCA_Macro SCA_CTOR
 
 " And the highlighting
+hi def link SC_SCV_L StorageClass
 hi def link SC_TLM_L StorageClass
 hi def link SC_AMS_L StorageClass
 hi def link SC_Func Function
