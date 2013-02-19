@@ -2,7 +2,7 @@
 " Vim syntax file for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 12 February 2013.
+" Last Modified: 20 February 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.4.0, for Vim 7.3
+" Version: 0.4.1, for Vim 7.3
 "=============================================================================
 
 " Source C++ Syntax
@@ -92,11 +92,11 @@ syn keyword SC_Func sc_start sc_stop
 syn keyword SC_Func sc_trace sc_trace_file 
 syn keyword SC_Func sc_set_time_resolution sc_set_default_time_unit
 syn keyword SC_Func sc_get_default_time_unit sc_get_time_resolution 
-syn keyword SC_Func sc_assert
-syn keyword SC_Func to_string
+syn keyword SC_Func sc_assert sc_bind
 
 " These can be used as streams too
 syn keyword SC_Func sensitive sensitive_neg sensitive_pos
+syn keyword SC_Func to_string
 syn keyword SC_Func to_bool() to_char() to_int() to_uint() to_short() to_ushort()
 syn keyword SC_Func to_long() to_ulong() to_int64() to_uint64() to_double() to_float()
 syn keyword SC_Func to_dec() to_bin() to_oct() to_hex()
@@ -146,6 +146,7 @@ syn keyword SCV_Class scv_sparse_array scv_severity scv_report
 " syn keyword SCV_Class scv_report_handler 
 " SCV Functions
 syn match   SCV_Func /\(\.\|->\)keep_only/
+syn match   SCV_Func /\(\.\|->\)keep_out/
 syn match   SCV_Func /\(\.\|->\)next()/
 " Macros in SCV
 syn keyword SCV_Macro SCV_CONSTRAINT SCV_CONSTRAINT_CTOR
