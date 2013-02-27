@@ -110,10 +110,10 @@ syn keyword SC_Func sc_is_unwinding
 " These can be used as streams too
 syn keyword SC_Func sensitive sensitive_neg sensitive_pos
 syn keyword SC_Func to_string
-syn keyword SC_Func to_bool() to_char() to_int() to_uint() to_short() to_ushort()
-syn keyword SC_Func to_long() to_ulong() to_int64() to_uint64() to_double() to_float()
-syn keyword SC_Func to_dec() to_bin() to_oct() to_hex()
-syn keyword SC_Func and_reduce() nand_reduce() or_reduce() nor_reduce() xor_reduce() xnor_reduce()
+syn match   SC_Func /to_\(bool\|char\|int\|uint\|short\|ushort\)()/
+syn match   SC_Func /to_\(long\|ulong\|int64\|uint64\|double\|float\)()/
+syn match   SC_Func /to_\(dec\|bin\|oct\|hex\)()/
+syn match   SC_Func /to_\(and\|nand\|or\|nor\|xor\|xnor\)_reduce()/
 
 " SystemC Communication classes
 syn keyword SC_Comu sc_clock sc_in_clk sc_reset
