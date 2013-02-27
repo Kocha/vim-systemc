@@ -2,7 +2,7 @@
 " Vim syntax file for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 20 February 2013.
+" Last Modified: 27 February 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.4.1, for Vim 7.3
+" Version: 0.4.2, for Vim 7.3
 "=============================================================================
 
 " Source C++ Syntax
@@ -72,12 +72,23 @@ syn match   SC_Func /\(\.\|->\)default_event()/
 syn match   SC_Func /\(\.\|->\)value_change_event()/
 syn match   SC_Func /\(\.\|->\)duty_cycle()/
 syn match   SC_Func /\(\.\|->\)name()/
+syn match   SC_Func /\(\.\|->\)valid()/
+syn match   SC_Func /\(\.\|->\)proc_kind()/
 syn match   SC_Func /\(\.\|->\)period()/
 syn match   SC_Func /\(\.\|->\)negedge()/
 syn match   SC_Func /\(\.\|->\)posedge()/
 syn match   SC_Func /\(\.\|->\)neg()/
 syn match   SC_Func /\(\.\|->\)pos()/
 syn match   SC_Func /\(\.\|->\)event()/
+syn match   SC_Func /\(\.\|->\)suspend()/
+syn match   SC_Func /\(\.\|->\)resume()/
+syn match   SC_Func /\(\.\|->\)sync_reset_on()/
+syn match   SC_Func /\(\.\|->\)sync_reset_off()/
+syn match   SC_Func /\(\.\|->\)\(reset\|reset_event\)()/
+syn match   SC_Func /\(\.\|->\)is_reset()/
+syn match   SC_Func /\(\.\|->\)kill()/
+syn match   SC_Func /\(\.\|->\)\(terminated\|terminated_event\)()/
+syn match   SC_Func /\(\.\|->\)throw_it/
 syn keyword SC_Func reset_signal_is async_reset_signal_is
 syn keyword SC_Func initialize dont_initialize
 syn keyword SC_Func next_trigger
@@ -93,6 +104,8 @@ syn keyword SC_Func sc_trace sc_trace_file
 syn keyword SC_Func sc_set_time_resolution sc_set_default_time_unit
 syn keyword SC_Func sc_get_default_time_unit sc_get_time_resolution 
 syn keyword SC_Func sc_assert sc_bind
+syn keyword SC_Func sc_get_current_process_handle
+syn keyword SC_Func sc_is_unwinding
 
 " These can be used as streams too
 syn keyword SC_Func sensitive sensitive_neg sensitive_pos
@@ -112,6 +125,8 @@ syn keyword SC_Comu sc_in sc_inout sc_out sc_in_rv sc_inout_rv sc_out_rv sc_sign
 syn keyword SC_Comu sc_channel sc_port sc_export sc_interface sc_channel sc_prim_channel
 syn keyword SC_Comu sc_semaphore sc_semaphore_if
 syn keyword SC_Comu sc_mutex sc_mutex_if sc_host_mutex
+syn keyword SC_Comu sc_process_handle
+syn keyword SC_Comu sc_unwind_exception
 
 " SystemC Utils classes
 syn keyword SC_Util sc_report sc_report_handler sc_vector 
