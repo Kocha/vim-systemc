@@ -129,17 +129,17 @@ syn keyword SC_Comu sc_process_handle
 syn keyword SC_Comu sc_unwind_exception
 
 " SystemC Utils classes
-syn keyword SC_Util sc_report sc_report_handler sc_vector 
+syn keyword SC_Util sc_report[_handler] sc_vector 
 syn keyword SC_Util sc_abs sc_max sc_min
 
 " SystemC Datatypes and xxx classes 
 syn keyword SC_Type sc_object sc_attribute sc_attr_cltn
-syn keyword SC_Type sc_module sc_module_name sc_spawn_options sc_spawn
+syn keyword SC_Type sc_module[_name] sc_spawn[_options]
 syn keyword SC_Type sc_time sc_bit sc_bv sc_logic sc_lv
 syn keyword SC_Type sc_signed sc_unsigned sc_int sc_uint sc_bigint sc_biguint
-syn keyword SC_Type sc_fix sc_fix_fast sc_fixed sc_fixed_fast
-syn keyword SC_Type sc_ufix sc_ufix_fast sc_ufixed sc_ufixed_fast
-syn keyword SC_Type sc_fxval sc_fxval_fast sc_fxnum sc_fxnum_fast
+syn keyword SC_Type sc_fix[_fast] sc_fixed[_fast]
+syn keyword SC_Type sc_ufix[_fast] sc_ufixed[_fast]
+syn keyword SC_Type sc_fxval[_fast] sc_fxnum[_fast]
 
 syn keyword SC_Type SC_ZERO_TIME SC_FS SC_PS SC_NS SC_US SC_MS SC_SEC
 syn keyword SC_Type SC_DEC SC_CSD
