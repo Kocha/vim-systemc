@@ -2,7 +2,7 @@
 " Vim syntax file for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 27 February 2013.
+" Last Modified: 7 March 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.4.2, for Vim 7.3
+" Version: 0.4.3, for Vim 7.3
 "=============================================================================
 
 " Source C++ Syntax
@@ -100,7 +100,8 @@ syn keyword SC_Func start_of_simulation end_of_simulation
 syn keyword SC_Func sc_time_stamp 
 syn keyword SC_Func sc_main 
 syn keyword SC_Func sc_start sc_stop
-syn keyword SC_Func sc_trace sc_trace_file 
+syn keyword SC_Func sc_create_vcd_trace_file sc_close_vcd_trace_file
+syn keyword SC_Func sc_trace[_file] sc_write_comment
 syn keyword SC_Func sc_set_time_resolution sc_set_default_time_unit
 syn keyword SC_Func sc_get_default_time_unit sc_get_time_resolution 
 syn keyword SC_Func sc_assert sc_bind
