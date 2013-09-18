@@ -2,7 +2,7 @@
 " Check SystemC File
 " FILE: cpp.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 1 Mar 2012.
+" Last Modified: 19-Sep-2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -23,15 +23,21 @@
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" Version: 0.2.0, for Vim 7.3
+" Version: 0.2.1
 "=============================================================================
 
+let s:save_cpo = &cpo
+set cpo&vim
+
 " Check file SystemC
-let file_syntax = Check_SystemC()
-if(file_syntax == "systemc")
-   " echohl Comment | echo "Detected SystemC file" | echohl None
-   set syntax=systemc
-   finish
+let s:file_syntax = Check_SystemC()
+if(s:file_syntax == "systemc")
+  " echohl Comment | echo "Detected SystemC file" | echohl None
+  setlocal syntax=systemc
+  finish
 endif
+
+let &cpo = s:save_cpo
+unlet s:save_cpo
 
 " vim: foldmethod=marker
