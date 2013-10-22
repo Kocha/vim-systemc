@@ -3,7 +3,7 @@
 snippet   SC_MODULE_SC_CTOR
 abbr      SC_MODULE(){ SC_CTOR }
 prev_word '^'
-    SC_MODULE( ${1:module_name} ){
+    SC_MODULE( ${1:`expand("%:r")`} ){
     
         void process();
         
@@ -16,7 +16,7 @@ prev_word '^'
 snippet   SC_MODULE_sc_module_name
 abbr      SC_MODULE(){ sc_module_name }
 prev_word '^'
-    SC_MODULE( ${1:module_name} ){
+    SC_MODULE( ${1:`expand("%:r"} ){
     
         void process();
         
@@ -41,20 +41,18 @@ snippet   SC_CTHREAD
 abbr      SC_CTHREAD( process, clk )
     SC_CTHREAD( ${1:process}, ${2:clk_event} );${0}
 
-snippet   SC_CTHREAD_RST
-abbr      SC_CTHREAD( process, clk )_sync_reset
-    SC_CTHREAD( ${1:process}, ${2:clk_event} );
-    reset_signal_is(${3:reset}, false);${0}
+snippet   reset_sig
+abbr      sync_reset
+    reset_signal_is(${1:reset}, false);${0}
 
-snippet   SC_METHOD_SEN
-abbr      SC_METHOD( process ); sensitive <<
-    SC_METHOD( ${1:process} );
-    sensitive << ${2:event} ;${0}
+snippet   async_reset_sig
+abbr      async_reset
+    async_reset_signal_is(${1:reset}, false);${0}
 
-snippet   SC_THREAD_SEN
-abbr      SC_THREAD( process ); sensitive <<
-    SC_THREAD( ${1:process} );
-    sensitive << ${2:event} ;${0}
+snippet   sensitive
+abbr      sensitive <<
+    sensitive << ${1:event} ;${0}
+
 # }}}
 
 # Signals {{{
