@@ -2,7 +2,7 @@
 " Vim syntax file for SystemC
 " FILE: systemc.vim
 " AUTHOR:  Kocha <kocha.lsifrontend@gmail.com>
-" Last Modified: 7 March 2013.
+" Last Modified: 16-Nov-2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -107,6 +107,7 @@ syn keyword SC_Func sc_get_default_time_unit sc_get_time_resolution
 syn keyword SC_Func sc_assert sc_bind
 syn keyword SC_Func sc_get_current_process_handle
 syn keyword SC_Func sc_is_unwinding
+syn keyword SC_Func sc_gen_unique_name
 
 " These can be used as streams too
 syn keyword SC_Func sensitive sensitive_neg sensitive_pos
