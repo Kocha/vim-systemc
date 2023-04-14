@@ -45,8 +45,8 @@ syn keyword SC_Macro SC_RUN_TO_TIME SC_EXIT_ON_STARVATION
 syn keyword SC_Macro SC_STOP_FINISH_DELTA SC_STOP_IMMEDIATE
 syn keyword SC_Macro SC_ELABORATION SC_BEFORE_END_OF_ELABORATION SC_START_OF_SIMULATION
 syn keyword SC_Macro SC_RUNNING SC_PAUSED SC_STOPPED SC_END_OF_SIMULATION
-syn keyword SC_Macro SC_FORK SC_JOIN 
-syn keyword SC_Macro SC_PROTOCOL SC_CTHREAD SC_THREAD 
+syn keyword SC_Macro SC_FORK SC_JOIN
+syn keyword SC_Macro SC_PROTOCOL SC_CTHREAD SC_THREAD
 syn keyword SC_Macro SC_CTOR SC_METHOD SC_MODULE SC_HAS_PROCESS
 syn keyword SC_Macro SC_REPORT_INFO SC_REPORT_WARNING SC_REPORT_ERROR SC_REPORT_FATAL
 syn keyword SC_Macro SC_REPORT_INFO_VERB
@@ -93,17 +93,17 @@ syn keyword SC_Func reset_signal_is async_reset_signal_is
 syn keyword SC_Func initialize dont_initialize
 syn keyword SC_Func next_trigger
 syn match   SC_Func /\(\.\|->\)notify()/
-syn keyword SC_Func wait 
+syn keyword SC_Func wait
 " syn keyword SC_Func read write
-syn keyword SC_Func before_of_elaboration end_of_elaboration
+syn keyword SC_Func before_end_of_elaboration end_of_elaboration
 syn keyword SC_Func start_of_simulation end_of_simulation
-syn keyword SC_Func sc_time_stamp 
-syn keyword SC_Func sc_main 
+syn keyword SC_Func sc_time_stamp
+syn keyword SC_Func sc_main
 syn keyword SC_Func sc_start sc_stop
 syn keyword SC_Func sc_create_vcd_trace_file sc_close_vcd_trace_file
 syn keyword SC_Func sc_trace[_file] sc_write_comment
 syn keyword SC_Func sc_set_time_resolution sc_set_default_time_unit
-syn keyword SC_Func sc_get_default_time_unit sc_get_time_resolution 
+syn keyword SC_Func sc_get_default_time_unit sc_get_time_resolution
 syn keyword SC_Func sc_assert sc_bind
 syn keyword SC_Func sc_get_current_process_handle
 syn keyword SC_Func sc_is_unwinding
@@ -120,8 +120,8 @@ syn match   SC_Func /to_\(and\|nand\|or\|nor\|xor\|xnor\)_reduce()/
 " SystemC Communication classes
 syn keyword SC_Comu sc_clock sc_in_clk sc_reset
 syn keyword SC_Comu sc_buffer sc_fifo sc_fifo_in sc_fifo_out
-syn keyword SC_Comu sc_fifo_nonblocking_in_if sc_fifo_blocking_in_if sc_fifo_in_if 
-syn keyword SC_Comu sc_fifo_nonblocking_out_if sc_fifo_blocking_out_if sc_fifo_out_if 
+syn keyword SC_Comu sc_fifo_nonblocking_in_if sc_fifo_blocking_in_if sc_fifo_in_if
+syn keyword SC_Comu sc_fifo_nonblocking_out_if sc_fifo_blocking_out_if sc_fifo_out_if
 syn keyword SC_Comu sc_event sc_event_queue sc_event_and_list sc_event_or_list
 syn keyword SC_Comu sc_in sc_inout sc_out sc_in_rv sc_inout_rv sc_out_rv sc_signal
 syn keyword SC_Comu sc_channel sc_port sc_export sc_interface sc_channel sc_prim_channel
@@ -131,10 +131,10 @@ syn keyword SC_Comu sc_process_handle
 syn keyword SC_Comu sc_unwind_exception
 
 " SystemC Utils classes
-syn keyword SC_Util sc_report[_handler] sc_vector 
+syn keyword SC_Util sc_report[_handler] sc_vector
 syn keyword SC_Util sc_abs sc_max sc_min
 
-" SystemC Datatypes and xxx classes 
+" SystemC Datatypes and xxx classes
 syn keyword SC_Type sc_object sc_attribute sc_attr_cltn
 syn keyword SC_Type sc_module[_name] sc_spawn[_options]
 syn keyword SC_Type sc_time sc_bit sc_bv sc_logic sc_lv
@@ -158,9 +158,9 @@ syn keyword SCV_Class scv_extension_rw_if scv_extension_rand_if scv_extension_ca
 syn keyword SCV_Class scv_smart_ptr scv_smart_ptr_if
 syn keyword SCV_Class scv_random scv_bag
 syn keyword SCV_Class scv_tr_db scv_tr_stream scv_tr_generator scv_tr_handle
-" syn keyword SCV_Class scv_tr_generator_base 
-syn keyword SCV_Class scv_sparse_array scv_severity scv_report 
-" syn keyword SCV_Class scv_report_handler 
+" syn keyword SCV_Class scv_tr_generator_base
+syn keyword SCV_Class scv_sparse_array scv_severity scv_report
+" syn keyword SCV_Class scv_report_handler
 " SCV Functions
 syn match   SCV_Func /\(\.\|->\)keep_only/
 syn match   SCV_Func /\(\.\|->\)keep_out/
@@ -176,13 +176,13 @@ syn keyword SCV_Macro SCV_DISPLAY SCV_CACHE_REPORT SCV_STOP SCV_ABORT SCV_INTERR
 syn keyword TLM_Class tlm_quantumkeeper tlm_dmi
 syn keyword TLM_Class tlm_transport_if tlm_fw_transport_if tlm_bw_transport_if tlm_transport_dbg_if
 syn keyword TLM_Class tlm_mm_interface tlm_extension tlm_generic_payload tlm_phase tlm_sync_enum
-syn keyword TLM_Class tlm_initiator_socket tlm_target_socket 
-syn keyword TLM_Class tlm_analysis_fifo tlm_analysis_if tlm_analysis_port 
-syn keyword TLM_Class tlm_array tlm_fifo 
+syn keyword TLM_Class tlm_initiator_socket tlm_target_socket
+syn keyword TLM_Class tlm_analysis_fifo tlm_analysis_if tlm_analysis_port
+syn keyword TLM_Class tlm_array tlm_fifo
 " TLM Functions
 " match   is (class menber functions('.' or "->")) no argument
 " syn match   TLM_Func /\(\.\|->\)/
-syn keyword TLM_Func b_transport nb_transport_fw nb_transport_bw 
+syn keyword TLM_Func b_transport nb_transport_fw nb_transport_bw
 syn keyword TLM_Func invalidate_direct_mem_ptr transport_dbg get_direct_mem_ptr
 
 " Macros in SystemC-AMS
